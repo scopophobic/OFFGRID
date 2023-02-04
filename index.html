@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codepen but Better</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="toggle" class="s-module--toggle--2hd7F s-module--hasZIndex--1QkpC"></div>
+        <div class="s-module--blender--d9X_A" id="blender"></div>
+            <div class="code-editor">
+                <div class="code">
+                    <div class="html-code">
+                        <h1><img src="images/html.png" alt="Image"></h1>
+                        <textarea></textarea>
+                    </div>
+                    <div class="css-code">
+                        <h1><img src="images\CSS.png" alt="Image"></h1>
+                        <textarea></textarea>
+                    </div>
+                    <div class="js-code">
+                        <h1><img src="images/js.png" alt="Image"></h1>
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <iframe id="result"></iframe>
+            </div>
+            <script>
+                document.getElementById('toggle').addEventListener('click', () => {
+                    document.getElementById('blender').classList.toggle('expand');
+                    document.getElementById('toggle').classList.toggle('s-module--hasZIndex--1QkpC');
+                });
+            </script>
+    <script src="script.js"></script>
+</body>
+</html>
