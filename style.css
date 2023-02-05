@@ -1,0 +1,235 @@
+.cm-s-3024-night.CodeMirror {
+  background: #090300;
+  color: #d6d5d4;
+}
+.cm-s-3024-night div.CodeMirror-selected {
+  background: #3a3432;
+}
+.cm-s-3024-night .CodeMirror-line::selection,
+.cm-s-3024-night .CodeMirror-line > span::selection,
+.cm-s-3024-night .CodeMirror-line > span > span::selection {
+  background: rgba(58, 52, 50, 0.99);
+}
+.cm-s-3024-night .CodeMirror-line::-moz-selection,
+.cm-s-3024-night .CodeMirror-line > span::-moz-selection,
+.cm-s-3024-night .CodeMirror-line > span > span::-moz-selection {
+  background: rgba(58, 52, 50, 0.99);
+}
+.cm-s-3024-night .CodeMirror-gutters {
+  background: #090300;
+  border-right: 0px;
+}
+.cm-s-3024-night .CodeMirror-guttermarker {
+  color: #db2d20;
+}
+.cm-s-3024-night .CodeMirror-guttermarker-subtle {
+  color: #5c5855;
+}
+.cm-s-3024-night .CodeMirror-linenumber {
+  color: #5c5855;
+}
+
+.cm-s-3024-night .CodeMirror-cursor {
+  border-left: 1px solid #807d7c;
+}
+
+.cm-s-3024-night span.cm-comment {
+  color: #cdab53;
+}
+.cm-s-3024-night span.cm-atom {
+  color: #a16a94;
+}
+.cm-s-3024-night span.cm-number {
+  color: #a16a94;
+}
+
+.cm-s-3024-night span.cm-property,
+.cm-s-3024-night span.cm-attribute {
+  color: #01a252;
+}
+.cm-s-3024-night span.cm-keyword {
+  color: #db2d20;
+}
+.cm-s-3024-night span.cm-string {
+  color: #fded02;
+}
+
+.cm-s-3024-night span.cm-variable {
+  color: #01a252;
+}
+.cm-s-3024-night span.cm-variable-2 {
+  color: #01a0e4;
+}
+.cm-s-3024-night span.cm-def {
+  color: #e8bbd0;
+}
+.cm-s-3024-night span.cm-bracket {
+  color: #d6d5d4;
+}
+.cm-s-3024-night span.cm-tag {
+  color: #db2d20;
+}
+.cm-s-3024-night span.cm-link {
+  color: #a16a94;
+}
+.cm-s-3024-night span.cm-error {
+  background: #db2d20;
+  color: #807d7c;
+}
+
+.cm-s-3024-night .CodeMirror-activeline-background {
+  background: #2f2f2f;
+}
+.cm-s-3024-night .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
+
+.CodeMirror {
+  background: #1c1c24 !important;
+  height: calc(100% - 4rem) !important;
+  font-family: monospace !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+:root {
+  --pink: rgb(255, 40, 113);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::selection {
+  background-color: lightgray;
+  opacity: 0.5;
+}
+body {
+  height: 100vh;
+  font-family: sans-serif;
+  background-image: radial-gradient(#040404, #181818);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.code-editor {
+  width: 90vw;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid #040404;
+}
+
+.code {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  overflow-y: auto;
+  background-color: #040404;
+  padding: 1rem;
+  border-radius: 0 1rem 1rem 0;
+}
+
+h1 {
+  font: 600 1.2rem sans-serif;
+  margin: 1rem 0;
+  color: #fff;
+}
+
+h1 > img {
+  width: 1.3rem;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+
+.code textarea {
+  width: 100%;
+  height: calc(100% - 4rem) !important;
+  background-color: #1c1c24 !important;
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1.1rem;
+  resize: none;
+}
+
+.code textarea::-webkit-scrollbar {
+  width: 0.4rem;
+}
+.code textarea::-webkit-scrollbar-thumb {
+  background-color: var(--pink);
+  border-radius: 0.4rem;
+}
+
+#result {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+a {
+  background-color: lime;
+  color: #fff;
+  padding: 0 1.2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 2rem;
+  float: right;
+  cursor: pointer;
+}
+.expand {
+  transform: scale(90);
+}
+
+#blender {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  border-radius: 50%;
+  right: calc(23% - 21.5rem);
+  bottom: 1rem;
+  pointer-events: none;
+  background: white;
+  transition: all 0.5s ease;
+  mix-blend-mode: difference;
+}
+.s-module--toggle--2hd7F {
+  background: #ffffff;
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  border-radius: 50%;
+  right: calc(23% - 21.5rem);
+  bottom: 1rem;
+  cursor: pointer;
+  background-image: url(https://www.svgrepo.com/show/381213/dark-mode-night-moon.svg);
+  background-size: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: none;
+}
+@media screen {
+  .s-module--toggle--2hd7F {
+    right: 1rem;
+    opacity: 0.8;
+  }
+}
+.s-module--hasZIndex--1QkpC {
+  background-color: #ffffff;
+  position: absolute;
+  background-image: url(https://www.svgrepo.com/show/432507/light-mode.svg);
+  background-size: 50px;
+  background-position: centear;
+  background-repeat: no-repeat;
+  transition: none;
+  right: calc(23% - 21.5rem);
+  width: 3rem;
+  height: 3rem;
+  bottom: 1rem;
+  cursor: pointer;
+}

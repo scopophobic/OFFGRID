@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codepen but Better</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Example using a CDN link
+<script src="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/lib/codemirror.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/lib/codemirror.min.css">
+<script src="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/mode/xml/xml.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/mode/css/css.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="path/to/codemirror.css">
+<script src="path/to/codemirror.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.55.0/codemirror.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.55.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.55.0/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.55.0/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.55.0/mode/javascript/javascript.min.js"></script>
+  </head>
+  <body>
+    <div
+      id="toggle"
+      class="s-module--toggle--2hd7F s-module--hasZIndex--1QkpC"
+    ></div>
+    <div class="s-module--blender--d9X_A" id="blender"></div>
+    <div class="code-editor">
+      <div class="code">
+        <div class="html-code">
+          <h1><img src="images/html.png" alt="Image" /></h1>
+          <textarea id="html-code"></textarea>
+        </div>
+        <div class="css-code">
+          <h1><img src="images\CSS.png" alt="Image" /></h1>
+          <textarea id="css-code"></textarea>
+        </div>
+        <div class="js-code">
+          <h1><img src="images/js.png" alt="Image" /></h1>
+          <textarea id="js-code"></textarea>
+        </div>
+      </div>
+      <iframe id="result"></iframe>
+    </div>
+    <script>
+      // document.getElementById('toggle').addEventListener('click', () => {
+      //     document.getElementById('blender').classList.toggle('expand');
+      //     document.getElementById('toggle').classList.toggle('s-module--hasZIndex--1QkpC');
+      // });
+      const html_code = CodeMirror.fromTextArea(
+        document.querySelector("#html-code"),
+        {
+          theme: "3024-night",
+          mode: "xml",
+          background: "transparent",
+        }
+      );
+      const css_code = CodeMirror.fromTextArea(
+        document.querySelector("#css-code"),
+        {
+            theme: "3024-night",
+          mode: "css",
+        }
+      );
+      const js_code = CodeMirror.fromTextArea(
+        document.querySelector("#js-code"),
+        {
+            theme: "3024-night",
+          mode: "javascript",
+        }
+      );
+      const result = document.querySelector("#result");
+
+      function run() {
+        //Storing Data In Local Storage
+        localStorage.setItem("html_code", html_code.getValue());
+        localStorage.setItem("css_code", css_code.getValue());
+        localStorage.setItem("js_code", js_code.getValue());
+
+        result.contentDocument.body.innerHTML =
+          `<style> ${localStorage.css_code}</style>` + localStorage.html_code;
+        result.contentWindow.eval(localStorage.js_code);
+      }
+
+      html_code.on("change", () => run());
+      css_code.on("change", () => run());
+      js_code.on("change", () => run());
+
+      html_code.setValue(localStorage.html_code || "");
+      css_code.setValue(localStorage.css_code || "");
+      js_code.setValue(localStorage.js_code || "");
+    </script>
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>
