@@ -47,7 +47,7 @@ const html_code = CodeMirror.fromTextArea(
 
   var textEditor = document.getElementById("##css-code");
 var generatedText = document.getElementById("generated-text");
-var apiToken = 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;
+var apiToken = open key;
 
 // Function to pick the line automatically after it is commented and enclosed within our own unique syntax
 function pickLine() {
