@@ -44,59 +44,32 @@ const html_code = CodeMirror.fromTextArea(
 
 //----------------------------------------------------------------
 
-
-  var textEditor = document.getElementById("##css-code");
+var textEditor = document.getElementById("text");
 var generatedText = document.getElementById("generated-text");
-var apiToken = open key;
 
-// Function to pick the line automatically after it is commented and enclosed within our own unique syntax
-function pickLine() {
-  var lines = textEditor.value.split("\n");
-  for (var i = 0; i < lines.length; i++) {
-    if (lines[i].startsWith("##")) {
-      // Use Open AI API to generate text based on the prompt
-      var prompt = lines[i].slice(20);
-      var request = new XMLHttpRequest();
-      request.open("POST", "https://api.openai.com/v1/engines/text-davinci/jobs");
-      request.setRequestHeader("Content-Type", "application/json");
-      request.setRequestHeader("Authorization", "Bearer " + apiToken);
+const axios = require("axios");
+require("dotenv").config();
 
-      request.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-          var response = JSON.parse(this.responseText);
-          generatedText.innerHTML = "Generated Text based on the prompt: " + response.choices[0].text;
-        }
-      };
+const apiKey = process.env.OPENAI_API_KEY;
 
-      request.send(JSON.stringify({
-        prompt: prompt,
-        max_tokens: 100,
-        n: 1,
-        temperature: 0.5
-      }));
-      break;
-    }
-  }
-}
+const client = axios.create({
+    headers: {
+      Authorization: "Bearer " + apiKey,
+    },
+  });
 
-// Check for syntax and prompt every few seconds
-setInterval(function() {
-  pickLine();
-}, 3000);
-
-
-console.log(generatedText);
-
-
-//-------------------
-window.onload = function() {
-    window.editor = CodeMirror.fromTextArea(code, {
-        mode: "javascript",
-        lineNumbers: true,
-        lineWrapping: true,
-        foldGutter: {
-            rangeFinder: new CodeMirror.fold.combine(CodeMirror.fold.brace, CodeMirror.fold.comment)
-        },
-        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+  const params = {
+    prompt: textEditor,
+    model: "text-davinci-003",
+    max_tokens: 10,
+    temperature: 0,
+  };
+  
+  client
+    .post("https://api.openai.com/v1/completions", params)
+    .then((result) => {
+      console.log(result.data.choices[0].text);
+    })
+    .catch((err) => {
+      console.log(err);
     });
-};
