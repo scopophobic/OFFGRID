@@ -172,7 +172,7 @@ h1 > img {
   border: none;
 }
 
-a {
+/* a {
   background-color: lime;
   color: #fff;
   padding: 0 1.2rem;
@@ -181,7 +181,7 @@ a {
   font-size: 2rem;
   float: right;
   cursor: pointer;
-}
+} */
 .expand {
   transform: scale(90);
 }
@@ -232,4 +232,16 @@ a {
   height: 3rem;
   bottom: 1rem;
   cursor: pointer;
+}
+
+.foot {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  font-size: 13px;
+}
+
+.foot a {
+  text-decoration: none;
+  color: white;
 }
